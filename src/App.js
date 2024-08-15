@@ -1,24 +1,26 @@
 import logo from './logo.svg';
+import Home from './Pages/Home';
 import './App.css';
+import Header from './Pages/Header';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import StegiCovi from './Pages/StegiCov19';
 
 function App() {
   return (
+    <Router>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <div className=''>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/stegicov19" element={<StegiCovi/>} />
+        { /*<Route path="/message" element={<Contact />} />
+        <Route path="/impact" element={<Project />} /> */}
+      </Routes>
+      </div>
+      {/* <Footer/> */}
     </div>
+  </Router>
   );
 }
 
